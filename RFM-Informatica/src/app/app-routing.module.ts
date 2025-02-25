@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { SignupPage } from './signup/signup.page'; // Importando diretamente o SignupPage
 
 const routes: Routes = [
   {
@@ -12,10 +13,9 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'signup',
-    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
-  },
-
+    path: 'signup', // Rota para a página de inscrição
+    component: SignupPage // Utilizando o SignupPage standalone
+  }
 ];
 
 @NgModule({
