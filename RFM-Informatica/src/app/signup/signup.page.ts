@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
-import { IonicModule, NavController } from '@ionic/angular'; // Importando NavController
+import { IonicModule, NavController } from '@ionic/angular';
+import { AuthService } from '../services/auth.service'; // Importando o serviço de autenticação
 
 @Component({
   selector: 'app-signup',
@@ -11,16 +12,14 @@ import { IonicModule, NavController } from '@ionic/angular'; // Importando NavCo
   imports: [CommonModule, FormsModule, IonicModule],
 })
 export class SignupPage {
-  // Propriedades para armazenar os dados do formulário
   username: string = '';
   email: string = '';
   password: string = '';
   confirmPassword: string = '';
 
-  constructor(private navCtrl: NavController) {} // Injetando NavController
+  constructor(private navCtrl: NavController, private authService: AuthService) {}
 
-  // Método para enviar o formulário
-  onSubmit(form: NgForm) {
+  async onSubmit(form: NgForm) {
     if (!form.valid) {
       alert('Por favor, preencha todos os campos corretamente.');
       return;
@@ -31,16 +30,19 @@ export class SignupPage {
       return;
     }
 
-    console.log('Formulário enviado com sucesso!');
-    console.log('Usuário:', this.username);
-    console.log('Email:', this.email);
-    console.log('Senha:', this.password);
+    try {
+      const response = await this.authService.signup(this.username, this.email, this.password);
+      alert('Conta criada com sucesso!');
+      console.log('Usuário registrado:', response);
+      this.navCtrl.navigateBack('/login'); // Redirecionar para login após cadastro
+    } catch (error) {
+      console.error('Erro no cadastro:', error);
+      alert(error || 'Erro ao criar conta. Tente novamente.');
+    }
 
-    // Resetar os campos do formulário
     form.resetForm();
   }
 
-  // Método para voltar para a página anterior
   goBack() {
     this.navCtrl.back();
   }
