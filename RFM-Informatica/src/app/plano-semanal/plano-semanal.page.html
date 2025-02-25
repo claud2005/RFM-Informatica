@@ -1,11 +1,13 @@
 <ion-header>
-  <ion-row>
-    <ion-col size="12" class="ion-text-center">
-      <img src="assets/icon/logotipo.png" alt="Logo" class="logo" />
-    </ion-col>
-  </ion-row>
   <ion-toolbar>
-    <ion-title>Olá (User)</ion-title>
+    <ion-row class="header-container">
+      <ion-col size="auto">
+        <img src="assets/icon/logotipo.png" alt="Logo" class="logo" />
+      </ion-col>
+      <ion-col>
+        <ion-title class="user-title">Olá, (User)</ion-title>
+      </ion-col>
+    </ion-row>
   </ion-toolbar>
 </ion-header>
 
@@ -13,7 +15,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-label>Cronograma</ion-label>
+        <ion-label class="label-title">Cronograma</ion-label>
         <ion-select [(ngModel)]="selectedRange" interface="popover">
           <ion-select-option value="5">Próximos 5 dias</ion-select-option>
           <ion-select-option value="7">Próximos 7 dias</ion-select-option>
@@ -39,8 +41,7 @@
         <ion-datetime [(ngModel)]="selectedDate" presentation="date"></ion-datetime>
       </ion-col>
     </ion-row>
-  </ion-grid> <!-- Fechamento correto da ion-grid -->
-
+  </ion-grid>
 </ion-content>
 
 <ion-footer>
