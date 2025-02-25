@@ -13,7 +13,7 @@
 
 <ion-content>
   <ion-grid>
-    <!-- Cronograma e Pesquisa alinhados -->
+    <!-- Cronograma e Pesquisa -->
     <ion-row class="top-bar">
       <ion-col size="6">
         <ion-label class="label-title">Cronograma</ion-label>
@@ -38,10 +38,13 @@
       </ion-col>
     </ion-row>
 
-    <!-- Calendário -->
+    <!-- ✅ Melhorado o Calendário -->
     <ion-row>
       <ion-col>
-        <ion-datetime [(ngModel)]="selectedDate" presentation="date"></ion-datetime>
+        <ion-item>
+          <ion-label position="stacked">Selecionar Data</ion-label>
+          <ion-datetime [(ngModel)]="selectedDate" presentation="date" show-default-buttons></ion-datetime>
+        </ion-item>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -49,7 +52,7 @@
 
 <ion-footer>
   <ion-toolbar>
-    <ion-buttons slot="start" class="left-align">
+    <ion-buttons slot="start">
       <ion-button (click)="navigateTo('finalizados')">
         <ion-icon name="checkmark-circle"></ion-icon>
         Serviços Finalizados
