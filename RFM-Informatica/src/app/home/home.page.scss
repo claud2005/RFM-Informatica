@@ -1,30 +1,27 @@
-.home-content {
-  --background: linear-gradient(135deg, #4e54c8, #8f94fb);
-  color: #ffffff;
-}
-
-.welcome-container {
+#container {
   text-align: center;
-  padding: 20px;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.app-logo {
-  width: 120px;
-  margin: 20px auto;
-  display: block;
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
 }
 
-h1 {
-  font-size: 28px;
-  margin-top: 10px;
-}
-
-p {
+#container p {
   font-size: 16px;
-  margin-bottom: 30px;
-  opacity: 0.9;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
 }
 
-ion-button {
-  margin: 10px 0;
+#container a {
+  text-decoration: none;
 }
