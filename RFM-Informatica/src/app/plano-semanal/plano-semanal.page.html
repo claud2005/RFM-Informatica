@@ -13,29 +13,32 @@
 
 <ion-content>
   <ion-grid>
-    <ion-row>
-      <ion-col>
+    <!-- Cronograma e Pesquisa alinhados -->
+    <ion-row class="top-bar">
+      <ion-col size="6">
         <ion-label class="label-title">Cronograma</ion-label>
-        <ion-select [(ngModel)]="selectedRange" interface="popover">
+        <ion-select [(ngModel)]="selectedRange" interface="popover" (ionChange)="updateSchedule()">
           <ion-select-option value="5">Próximos 5 dias</ion-select-option>
           <ion-select-option value="7">Próximos 7 dias</ion-select-option>
           <ion-select-option value="15">Próximos 15 dias</ion-select-option>
           <ion-select-option value="30">Próximos 30 dias</ion-select-option>
         </ion-select>
       </ion-col>
-      <ion-col>
+      <ion-col size="6">
         <ion-searchbar placeholder="Procurar Tarefa"></ion-searchbar>
       </ion-col>
     </ion-row>
 
-    <ion-row>
+    <!-- Lista de Tarefas -->
+    <ion-row *ngFor="let task of tasks">
       <ion-col>
-        <h2>Segunda-feira, 24 de Fevereiro de 2025</h2>
-        <p>14:00</p>
-        <h3>Nome da Tarefa</h3>
+        <h2>{{ task.date }}</h2>
+        <p>{{ task.time }}</p>
+        <h3>{{ task.name }}</h3>
       </ion-col>
     </ion-row>
 
+    <!-- Calendário -->
     <ion-row>
       <ion-col>
         <ion-datetime [(ngModel)]="selectedDate" presentation="date"></ion-datetime>
@@ -46,7 +49,7 @@
 
 <ion-footer>
   <ion-toolbar>
-    <ion-buttons slot="start">
+    <ion-buttons slot="start" class="left-align">
       <ion-button (click)="navigateTo('finalizados')">
         <ion-icon name="checkmark-circle"></ion-icon>
         Serviços Finalizados

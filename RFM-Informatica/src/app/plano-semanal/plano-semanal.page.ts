@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // ✅ Import FormsModule
-import { IonicModule, ModalController } from '@ionic/angular';
+import { FormsModule } from '@angular/forms'; 
+import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,25 +11,37 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, IonicModule, FormsModule] 
 })
 export class PlanoSemanalPage {
-  selectedRange: string = ''; 
+  selectedRange: number = 7; // Começa com 7 dias por padrão
   selectedDate: string = new Date().toISOString();  
-  showCalendar: boolean = false; // ✅ Adicionando variável para o modal
+  tasks: any[] = []; // ✅ Lista de tarefas
 
-  constructor(private modalCtrl: ModalController) {} // ✅ Adicionando ModalController
+  constructor() {
+    this.updateSchedule(); // Gera as tarefas ao iniciar
+  }
+
+  // ✅ Atualiza as tarefas com base no range selecionado
+  updateSchedule() {
+    const today = new Date();
+    this.tasks = [];
+
+    for (let i = 0; i < this.selectedRange; i++) {
+      const date = new Date();
+      date.setDate(today.getDate() + i);
+
+      this.tasks.push({
+        date: date.toLocaleDateString('pt-BR', { weekday: 'long', day: '2-digit', month: 'long' }),
+        time: '14:00', // Exemplo fixo
+        name: `Tarefa ${i + 1}`
+      });
+    }
+  }
+
+  // ✅ Atualiza as tarefas quando o usuário troca o range
+  onRangeChange() {
+    this.updateSchedule();
+  }
 
   navigateTo(route: string) {
     console.log('Navegando para', route);
-    // Aqui voce pode adicionar o roteamento correto, exemplo:
-    // this.router.navigate([route]);
-  }
-
-  // ✅ Função para abrir o calendário
-  openCalendar() {
-    this.showCalendar = true;
-  }
-
-  // ✅ Função para fechar o calendário
-  closeCalendar() {
-    this.showCalendar = false;
   }
 }
