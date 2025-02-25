@@ -11,8 +11,6 @@
 
 <ion-content>
   <ion-grid>
-
-
     <ion-row>
       <ion-col>
         <ion-label>Cronograma</ion-label>
@@ -38,19 +36,10 @@
 
     <ion-row>
       <ion-col>
-        <ion-button expand="full" (click)="openCalendar()">Selecionar Data</ion-button>
+        <ion-datetime [(ngModel)]="selectedDate" presentation="date"></ion-datetime>
       </ion-col>
     </ion-row>
-  </ion-grid>
-
-  <!-- Modal do Calendário -->
-  <ion-modal [isOpen]="showCalendar" (didDismiss)="closeCalendar()">
-    <ion-content>
-      <ion-datetime [(ngModel)]="selectedDate"></ion-datetime>
-      <ion-button expand="full" (click)="closeCalendar()">OK</ion-button>
-    </ion-content>
-  </ion-modal>
-  
+  </ion-grid> <!-- Fechamento correto da ion-grid -->
 
 </ion-content>
 
