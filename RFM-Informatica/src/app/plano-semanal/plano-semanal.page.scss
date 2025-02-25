@@ -1,0 +1,99 @@
+// Estilos gerais
+:host {
+    --ion-background-color: #ffffff;
+    --ion-text-color: #333;
+  }
+  
+  // Centraliza o conteúdo
+  ion-content {
+    --padding-top: 10px;
+    --padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  // Logo
+  .logo {
+    width: 80px;
+    height: auto;
+    margin-top: 10px;
+  }
+  
+  // Cabeçalho
+  ion-toolbar {
+    --background: #ffffff;
+    --color: #333;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  // Estiliza o Cronograma e a Barra de Pesquisa
+  ion-row {
+    width: 90%;
+    margin: 10px auto;
+  }
+  
+  ion-label {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  ion-select,
+  ion-searchbar {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 5px;
+    background: #f8f8f8;
+  }
+  
+  // Texto da Data e Nome da Tarefa
+  h2 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  p {
+    font-size: 1rem;
+    color: #777;
+  }
+  
+  // Estiliza o ion-datetime
+  ion-datetime {
+    width: 100%;
+    background: #f8f8f8;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1rem;
+  }
+  
+  // Rodapé e botões de navegação
+  ion-footer {
+    border-top: 2px solid #ddd;
+  }
+  
+  ion-toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  ion-button {
+    --background: transparent;
+    --color: #333;
+    font-size: 0.9rem;
+  }
+  
+  ion-button ion-icon {
+    font-size: 1.2rem;
+    margin-right: 5px;
+  }
+  
