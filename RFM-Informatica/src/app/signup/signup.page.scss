@@ -1,52 +1,53 @@
 .signup-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    height: 100%;
-    background-color: #f7f7f7;
-  }
-  
-  h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: 600;
-    color: #333;
-  }
-  
-  ion-item {
-    margin-bottom: 15px;
-  }
-  
-  .submit-btn {
-    background: linear-gradient(45deg, #4CAF50, #81C784);
-    border-radius: 5px;
-    font-weight: bold;
-  }
-  
-  ion-label {
-    color: #555;
-  }
-  
-  ion-input {
-    --background: #fff;
-    --border-radius: 5px;
-    --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  p.login-link {
-    margin-top: 20px;
-    color: #555;
-    font-size: 14px;
-  }
-  
-  p.login-link a {
-    color: #4CAF50;
-    text-decoration: none;
-  }
-  
-  p.login-link a:hover {
-    text-decoration: underline;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #2c3e50, #3498db); /* Mantendo o fundo azul */
+  color: #fff;
+}
+
+.signup-content {
+  text-align: center;
+  padding: 35px 25px;
+  width: 100%;
+  max-width: 420px;
+  animation: floatUp 1s ease forwards;
+
+  /* Remove qualquer fundo preto */
+  background: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Remove qualquer sombra do formulário */
+form {
+  background: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Remove fundo preto de ion-card caso esteja sendo aplicado */
+ion-card {
+  background: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Mantém os inputs suaves */
+ion-item {
+  --background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  margin: 12px 0;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Botão ajustado para combinar com o tema */
+ion-button {
+  background: #3498db;
+  color: #ffffff;
+}

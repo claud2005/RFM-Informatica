@@ -12,8 +12,8 @@ import { SignupPage } from './signup.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    SignupPageRoutingModule,
-    SignupPage 
-  ]
+    SignupPageRoutingModule
+  ],
+  declarations: [SignupPage]
 })
 export class SignupPageModule {}
