@@ -13,9 +13,8 @@
 
 <ion-content>
   <ion-grid>
-    <!-- Cronograma e Pesquisa -->
     <ion-row class="top-bar">
-      <ion-col size="6">
+      <ion-col size="6" class="cronograma">
         <ion-label class="label-title">Cronograma</ion-label>
         <ion-select [(ngModel)]="selectedRange" interface="popover" (ionChange)="updateSchedule()">
           <ion-select-option value="5">Próximos 5 dias</ion-select-option>
@@ -24,10 +23,12 @@
           <ion-select-option value="30">Próximos 30 dias</ion-select-option>
         </ion-select>
       </ion-col>
-      <ion-col size="6">
+      
+      <ion-col size="6" class="search-bar">
         <ion-searchbar placeholder="Procurar Tarefa"></ion-searchbar>
       </ion-col>
     </ion-row>
+    
 
     <!-- Lista de Tarefas -->
     <ion-row *ngFor="let task of tasks">
@@ -38,13 +39,10 @@
       </ion-col>
     </ion-row>
 
-    <!-- ✅ Melhorado o Calendário -->
+    <!-- Calendário (agora abre o modal ao clicar) -->
     <ion-row>
       <ion-col>
-        <ion-item>
-          <ion-label position="stacked">Selecionar Data</ion-label>
-          <ion-datetime [(ngModel)]="selectedDate" presentation="date" show-default-buttons></ion-datetime>
-        </ion-item>
+        <ion-datetime [(ngModel)]="selectedDate" presentation="date" (click)="openModal()"></ion-datetime>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -66,3 +64,12 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-footer>
+
+<!-- Modal -->
+<ion-modal [isOpen]="isModalOpen" (didDismiss)="closeModal()">
+  <ion-content class="modal-content">
+    <h2>Detalhes do Dia</h2>
+    <p>Data Selecionada: {{ selectedDate | date: 'fullDate' }}</p>
+    <ion-button expand="full" (click)="closeModal()">Fechar</ion-button>
+  </ion-content>
+</ion-modal>

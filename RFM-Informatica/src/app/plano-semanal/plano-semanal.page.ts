@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router'; // ✅ Importado para Navegação
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-plano-semanal',
@@ -15,8 +15,9 @@ export class PlanoSemanalPage {
   selectedRange: number = 7;
   selectedDate: string = new Date().toISOString();
   tasks: any[] = [];
+  isModalOpen: boolean = false; // Estado do modal
 
-  constructor(private router: Router) { // ✅ Injetado o Router no construtor
+  constructor(private router: Router) {
     this.updateSchedule();
   }
 
@@ -40,8 +41,15 @@ export class PlanoSemanalPage {
     this.updateSchedule();
   }
 
-  // ✅ Corrigido para navegar corretamente
   navigateTo(route: string) {
     this.router.navigateByUrl(`/${route}`);
+  }
+
+  openModal() {
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
   }
 }
