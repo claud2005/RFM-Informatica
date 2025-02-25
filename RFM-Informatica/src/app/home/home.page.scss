@@ -1,10 +1,11 @@
 .home-content {
-  --background: linear-gradient(135deg, #4e54c8, #8f94fb);
+  --background: linear-gradient(135deg, #2c3e50, #3498db); /* Novo gradiente */
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100%;
   padding: 20px;
+  color: #fff;
 }
 
 .login-wrapper {
@@ -18,25 +19,38 @@
 .login-card {
   text-align: center;
   padding: 40px 30px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(15px);
-  border-radius: 24px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 15px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
   width: 100%;
-  max-width: 400px;
-  color: #fff;
-  transition: transform 0.3s ease;
+  max-width: 420px;
+  position: relative;
+  overflow: hidden;
+  animation: floatUp 1s ease forwards;
 }
 
-.login-card:hover {
-  transform: translateY(-5px);
+@keyframes floatUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .app-logo {
-  width: 100px;
+  width: 120px;
   margin-bottom: 20px;
   border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+.app-logo:hover {
+  transform: scale(1.1) rotate(5deg);
 }
 
 h1 {
@@ -48,14 +62,19 @@ h1 {
 p {
   font-size: 16px;
   margin-bottom: 20px;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .input-field {
-  --background: rgba(255, 255, 255, 0.2);
+  --background: rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   margin: 12px 0;
   color: #ffffff;
+  transition: box-shadow 0.3s ease;
+}
+
+.input-field:focus-within {
+  box-shadow: 0 0 12px #3498db; /* Destaque azul mais sutil */
 }
 
 ion-input {
@@ -66,18 +85,29 @@ ion-icon {
   color: #ffffff;
 }
 
-ion-button {
+.btn-animate {
   margin: 15px 0;
   border-radius: 14px;
   font-weight: 600;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-animate:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
 }
 
 .forgot-password {
   font-size: 14px;
-  color: #e0e0e0;
+  color: #b0b0b0;
   cursor: pointer;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: #3498db; /* Azul claro ao passar o mouse */
 }
 
 .divider {
@@ -96,4 +126,23 @@ ion-button {
   background-color: rgba(255, 255, 255, 0.3);
   vertical-align: middle;
   margin: 0 5px;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.social-btn {
+  flex: 1;
+  border-radius: 12px;
+  color: #333;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.social-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
 }
