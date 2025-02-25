@@ -1,20 +1,37 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>TEC-Online</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" class="home-content">
+  <div class="login-wrapper">
+    <div class="login-card">
+      <img src="assets/icon/logotipo.png" alt="Logo" class="app-logo" />
+      <h1>Bem-vindo</h1>
+      <p>Faça login ou registre-se para começar.</p>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+      <ion-item class="input-field">
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-input placeholder="Email" type="email"></ion-input>
+      </ion-item>
+
+      <ion-item class="input-field">
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-input placeholder="Senha" type="password"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" color="secondary">
+        Entrar
+      </ion-button>
+
+      <p class="forgot-password">Esqueceu a senha?</p>
+
+      <p class="divider">ou</p>
+
+      <ion-button expand="block" color="tertiary">
+        Criar Nova Conta
+      </ion-button>
+    </div>
   </div>
 </ion-content>
