@@ -1,53 +1,73 @@
-.signup-container {
+/* Centralizar o conteúdo */
+.center-content {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 100vh;
   padding: 20px;
-  background: linear-gradient(135deg, #2c3e50, #3498db); /* Mantendo o fundo azul */
+  background: linear-gradient(135deg, #2c3e50, #3498db);
   color: #fff;
 }
 
-.signup-content {
-  text-align: center;
-  padding: 35px 25px;
+/* Logo */
+.app-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px; /* Espaço entre o logo e o formulário */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Caixa do formulário */
+.form-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 10px;
   width: 100%;
-  max-width: 420px;
-  animation: floatUp 1s ease forwards;
-
-  /* Remove qualquer fundo preto */
-  background: none !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Remove qualquer sombra do formulário */
-form {
-  background: none !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
+/* Título */
+h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #fff;
 }
 
-/* Remove fundo preto de ion-card caso esteja sendo aplicado */
-ion-card {
-  background: none !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-
-/* Mantém os inputs suaves */
+/* Inputs */
 ion-item {
   --background: rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
-  margin: 12px 0;
-  transition: box-shadow 0.3s ease;
+  --color: white;
+  border-radius: 8px;
+  margin-bottom: 12px;
 }
 
-/* Botão ajustado para combinar com o tema */
-ion-button {
-  background: #3498db;
-  color: #ffffff;
+/* Botão de registrar */
+.btn-register {
+  background: #3498db !important;
+  color: #ffffff !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease;
+}
+
+/* Garante que o botão seja clicável */
+.btn-register:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Botão de voltar */
+.btn-back {
+  margin-top: 10px;
+  background: #e74c3c !important;
+  color: white !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 8px;
 }
