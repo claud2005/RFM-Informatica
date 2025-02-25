@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ola (User)</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <img src="assets/logo.png" alt="Logo" class="logo" />
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <ion-label> Cronograma </ion-label>
+        <ion-select [(ngModel)]="selectedRange" interface="popover">
+          <ion-select-option value="5">Próximos 5 dias</ion-select-option>
+          <ion-select-option value="7">Próximos 7 dias</ion-select-option>
+        </ion-select>
+      </ion-col>
+      <ion-col>
+        <ion-searchbar placeholder="Procurar Tarefa"></ion-searchbar>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <h2>Segunda-feira, 24 de Fevereiro de 2025</h2>
+        <p>14:00</p>
+        <h3>Nome da Tarefa</h3>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <ion-datetime [(ngModel)]="selectedDate" presentation="date"></ion-datetime>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="navigateTo('finalizados')">
+        <ion-icon name="checkmark-circle"></ion-icon>
+        Serviços Finalizados
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="navigateTo('perfil')">
+        <ion-icon name="person"></ion-icon>
+        Perfil
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

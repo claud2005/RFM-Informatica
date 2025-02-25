@@ -15,7 +15,11 @@ const routes: Routes = [
   {
     path: 'signup', // Rota para a página de inscrição
     component: SignupPage // Utilizando o SignupPage standalone
+  },  {
+    path: 'plano-semanal',
+    loadChildren: () => import('./plano-semanal/plano-semanal.module').then( m => m.PlanoSemanalPageModule)
   }
+
 ];
 
 @NgModule({
