@@ -1,74 +1,53 @@
-/* Estilos principais */
-.signup-content {
-  --background: #f9f9f9;
-  padding: 0;
+.signup-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-}
-
-/* Wrapper do formulário */
-.signup-wrapper {
-  width: 100%;
-  max-width: 400px;
+  height: 100vh;
   padding: 20px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
+  background: linear-gradient(135deg, #2c3e50, #3498db); /* Mantendo o fundo azul */
+  color: #fff;
 }
 
-/* Título */
-h1 {
+.signup-content {
   text-align: center;
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 30px;
-  color: #333;
+  padding: 35px 25px;
+  width: 100%;
+  max-width: 420px;
+  animation: floatUp 1s ease forwards;
+
+  /* Remove qualquer fundo preto */
+  background: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 
-/* Estilo dos itens de input */
+/* Remove qualquer sombra do formulário */
+form {
+  background: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Remove fundo preto de ion-card caso esteja sendo aplicado */
+ion-card {
+  background: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Mantém os inputs suaves */
 ion-item {
-  margin-bottom: 16px;
+  --background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  margin: 12px 0;
+  transition: box-shadow 0.3s ease;
 }
 
-/* Estilo da label */
-ion-label {
-  font-size: 14px;
-  color: #333;
-  font-weight: 500;
-}
-
-/* Estilo do ion-input */
-ion-input {
-  --padding-start: 12px;
-  --padding-end: 12px;
-  --background: #fafafa;
-  --border-radius: 8px;
-  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilo do botão de submit */
-ion-button.submit-btn {
-  margin-top: 20px;
-  --background: #3880ff;
-  --border-radius: 8px;
-  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --color: #fff;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-ion-button.submit-btn:hover {
-  --background: #3171e0;
-}
-
-/* Responsividade */
-@media (max-width: 480px) {
-  .signup-wrapper {
-    padding: 15px;
-    margin: 0 10px;
-  }
+/* Botão ajustado para combinar com o tema */
+ion-button {
+  background: #3498db;
+  color: #ffffff;
 }
