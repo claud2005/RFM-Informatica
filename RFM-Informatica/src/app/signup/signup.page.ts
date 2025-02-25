@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';  // Importando o IonicModule
+import { IonicModule, NavController } from '@ionic/angular'; // Importando NavController
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
   styleUrls: ['./signup.page.scss'],
-  standalone: true,  // Componente standalone
-  imports: [CommonModule, FormsModule, IonicModule]  // Adicionando o IonicModule
+  standalone: true,
+  imports: [CommonModule, FormsModule, IonicModule],
 })
 export class SignupPage {
   // Propriedades para armazenar os dados do formulário
@@ -17,25 +17,31 @@ export class SignupPage {
   password: string = '';
   confirmPassword: string = '';
 
+  constructor(private navCtrl: NavController) {} // Injetando NavController
+
   // Método para enviar o formulário
   onSubmit(form: NgForm) {
-    // Verifica se o formulário é válido
-    if (form.valid) {
-      if (this.password !== this.confirmPassword) {
-        alert('As senhas não coincidem!');
-        return;
-      }
-
-      // Aqui você pode enviar os dados para o servidor
-      console.log('Formulário enviado!');
-      console.log('Usuário:', this.username);
-      console.log('Email:', this.email);
-      console.log('Senha:', this.password);
-
-      // Resetar o formulário após envio
-      form.reset();
-    } else {
+    if (!form.valid) {
       alert('Por favor, preencha todos os campos corretamente.');
+      return;
     }
+
+    if (this.password !== this.confirmPassword) {
+      alert('As senhas não coincidem!');
+      return;
+    }
+
+    console.log('Formulário enviado com sucesso!');
+    console.log('Usuário:', this.username);
+    console.log('Email:', this.email);
+    console.log('Senha:', this.password);
+
+    // Resetar os campos do formulário
+    form.resetForm();
+  }
+
+  // Método para voltar para a página anterior
+  goBack() {
+    this.navCtrl.back();
   }
 }
